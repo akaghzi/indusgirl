@@ -20,6 +20,9 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1/edit
   def edit
+    if @category.parent_id == 0
+      redirect_to categories_path, alert: "You can not edit root category"
+    end
     # @categories = Category.where(active: true)
   end
 
@@ -65,6 +68,7 @@ class CategoriesController < ApplicationController
     else
       respond_to do |format|
         format.html { redirect_to categories_url, alert: 'Root category can not be destroyed.' }
+        format.json { head :no_content }
       end
     end  
   end

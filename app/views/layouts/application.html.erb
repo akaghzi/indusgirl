@@ -14,17 +14,23 @@
   <div class="header">
     <%= render partial: "layouts/header"%>    
   </div>
-  <% if notice %>
-  <div class="alert alert-success">
-    <%= notice %>
-  </div>
-  <% end %>
-  <% if alert %>
-  <div class="alert alert-danger">
-    <%= alert %>
-  </div>
-  <% end %>
   <div class="container">
+    <p class="pull-right">    
+      <% if user_signed_in? %>
+      <%= current_user.email %>
+      <% end %>
+    </p>    
+    <% if notice %>
+    <div class="alert alert-success">
+      <%= notice %>
+    </div>
+    <% end %>
+    <% if alert %>
+    <div class="alert alert-danger">
+      <%= alert %>
+    </div>
+    <% end %>
+    
     <%= yield %>
   </div>
   <div class="footer">

@@ -80,12 +80,12 @@
   <div class="form-group">
     <div class="col-lg-2 control-label">
       <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %>
     </div>
     <div class="col-lg-4">
       <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %>
     </div>
   </div>
 
@@ -100,13 +100,12 @@
 
   <div class="form-group">
     <div class="col-lg-offset-2 col-lg-4">
-      <%= f.submit "Sign up", class: "btn btn-medium btn-default" %>
-      <%= link_to "Cancel", new_user_session_path, class: "btn btn-medium btn-warning" %>
+      <%= f.submit "Sign up", class: "btn btn-medium btn-success" %>
+      <%= link_to "Cancel", new_user_session_path, class: "link" %>
     </div>
   </div>
   <% end %>
   
-
   <%#= render "devise/shared/links" %>
   
 </div>
