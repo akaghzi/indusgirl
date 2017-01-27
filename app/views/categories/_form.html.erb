@@ -1,0 +1,40 @@
+<div class="ig-form">
+  <%= form_for(category, html: {class: "form-horizontal", role: "form"}) do |f| %>
+    <% if category.errors.any? %>
+      <div class="alert alert-warning">
+        <h4><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h4>
+        <ul>
+        <% category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :parent_id %>
+      <%= f.collection_select :parent_id, Category.where(active: true), :id, :name, {}, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :active %>
+      <%= f.check_box :active, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :display_order %>
+      <%= f.number_field :display_order, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Submit", class: "btn btn-medium btn-default" %>
+      <%= link_to "Cancel", categories_path, class: "btn btn-medium btn-warninng" %>
+    </div>
+  <% end %>
+  
+</div>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>
+    Indus Girl
+  </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag 'application', media: 'all','data-turbolinks-track':'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track':'reload' %>
+</head>
+
+<body>
+  <div class="header">
+    <%= render partial: "layouts/header"%>    
+  </div>
+  <% if notice %>
+  <div class="alert alert-success">
+    <%= notice %>
+  </div>
+  <% end %>
+  <% if alert %>
+  <div class="alert alert-danger">
+    <%= alert %>
+  </div>
+  <% end %>
+  <div class="container">
+    <%= yield %>
+  </div>
+  <div class="footer">
+    <%= render partial: "layouts/footer"%>
+  </div>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<% if user_signed_in? %>
+<%= link_to "Sign out", destroy_user_session_path, method: :delete, data: {confirm: "Are you sure?"} %>
+<% else %>
+<%= link_to "Sign in", new_user_session_path %>
+<% end %>
+<p>
+  Clear Edge Technologies Inc. <%= Time.now.year %> &copy All rights reserved. 
+</p>
