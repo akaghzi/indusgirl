@@ -6,4 +6,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable #and :omniauthable
   validates :phone, :city, presence: true
+  before_save {|user|user.firstname=user.firstname.downcase}
+  before_save {|user|user.lastname=user.lastname.downcase}
+  before_save {|user|user.city=user.city.downcase}
+  
 end
